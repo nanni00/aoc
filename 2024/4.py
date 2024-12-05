@@ -1,56 +1,35 @@
-
-
-s = [
-    'S..S..S',
-    '.A.A.A.',
-    '..MMM..',
-    'SAMXMAS',
-    '..MMM..',
-    '.A.A.A.',
-    'S..S..S'
-]
-
 with open('2024/input/4.txt') as fr:
     s = [line.strip() for line in fr.readlines()]
-
 
 
 def find_XMAS(r, c, s):
     cnt = 0
     
     #right
-    if s[r][c:c+4] == 'XMAS':
-        cnt += 1
+    cnt += s[r][c:c+4] == 'XMAS'
     
     # left
-    if s[r][c-3:c+1] == 'SAMX':
-        cnt += 1
+    cnt += s[r][c-3:c+1] == 'SAMX'
 
     if r >= 3:
         # up
-        if ''.join(s[r - x][c] for x in range(0, 4)) == 'XMAS':
-            cnt += 1
+        cnt += ''.join(s[r - x][c] for x in range(0, 4)) == 'XMAS'
         
         # left up
-        if c >= 3 and ''.join(s[r - x][c - x] for x in range(0, 4)) == 'XMAS':
-            cnt += 1
+        cnt += c >= 3 and ''.join(s[r - x][c - x] for x in range(0, 4)) == 'XMAS'
         
         # right up
-        if c < len(s[0]) - 3 and ''.join(s[r - x][c + x] for x in range(0, 4)) == 'XMAS':
-            cnt += 1
+        cnt += c < len(s[0]) - 3 and ''.join(s[r - x][c + x] for x in range(0, 4)) == 'XMAS'
     
     if r < len(s) - 3:
         # down
-        if ''.join(s[r + x][c] for x in range(0, 4)) == 'XMAS':
-            cnt += 1
+        cnt += ''.join(s[r + x][c] for x in range(0, 4)) == 'XMAS'
         
         # left down
-        if c >= 3 and ''.join(s[r + x][c - x] for x in range(0, 4)) == 'XMAS':
-            cnt += 1
+        cnt += c >= 3 and ''.join(s[r + x][c - x] for x in range(0, 4)) == 'XMAS'
 
         # right down
-        if c < len(s[0]) - 3 and ''.join(s[r + x][c + x] for x in range(0, 4)) == 'XMAS':
-            cnt += 1
+        cnt += c < len(s[0]) - 3 and ''.join(s[r + x][c + x] for x in range(0, 4)) == 'XMAS'
     return cnt
 
 
@@ -60,13 +39,6 @@ def find_X_MAS(r, c, s):
         if ''.join(sorted([s[r-1][c-1], s[r][c], s[r+1][c+1]])) == ''.join(sorted([s[r-1][c+1], s[r][c], s[r+1][c-1]])) == 'AMS':
             cnt += 1
     return cnt
-
-
-# s = [
-#     '.M...S..M.S',
-#     'MAS.SAM..A.',
-#     '.S...M..M.S',
-# ]
 
 
 part_1 = 0

@@ -5,8 +5,11 @@ with open('2024/input/5.txt') as fr:
     lines = fr.readlines()
     rules, updates = lines[:lines.index('\n')], lines[lines.index('\n')+1:]
 
-rules = [list(map(int, rule.split('|'))) for rule in rules]
-rules = {k: [y[0] for y in g] for k, g in groupby(sorted(rules, key=lambda x: x[1]), key=lambda x: x[1])}
+rules = {
+    k: 
+    [y[0] for y in g] 
+    for k, g in groupby(sorted([list(map(int, rule.split('|'))) for rule in rules], key=lambda x: x[1]), key=lambda x: x[1])
+}
 updates = [list(map(int, update.split(','))) for update in updates]
 
 
