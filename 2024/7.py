@@ -21,4 +21,3 @@ part_2 = sum([test[0] for test in tests if check(test[0], test[1], test[2:], [op
 
 print(f'{part_1=}')
 print(f'{part_2=}')
-
