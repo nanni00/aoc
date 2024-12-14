@@ -1,3 +1,7 @@
+# Very bad solution, actually slow
+# a better usage of indexes on even/odd positions for free/file blocks
+# should improve performance and code
+
 with open('2024/input/9.txt', 'r') as f:
     disk_map = f.readline().strip()
 
