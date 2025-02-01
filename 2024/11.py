@@ -25,7 +25,7 @@ print(f'part_2={blink(75, stones)}')
 
 
 # Nice solution with recursion and caching
-# From reddit, not mine
+# From reddit
 from functools import cache
 from math import floor, log10
 
